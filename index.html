@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b1425">
+  <meta name="description" content="Calculadora de arbitraje de dólar oficial y USDT entre plataformas argentinas.">
+  <title>Rulo | Arbitraje dólar</title>
+  <style>
+    :root{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#edf4ff;background:#0b1425;font-synthesis:none}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 80% 0%,#19345a 0%,transparent 50%),#0b1425}main{width:min(1050px,100%);margin:auto;padding:24px 18px 70px}header{display:flex;align-items:center;gap:13px;margin-bottom:28px}.logo{font-size:24px;background:#1ce1ac;color:#061826;border-radius:14px;padding:10px 13px;font-weight:900}.eyebrow{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#8fa5c1}h1{font-size:clamp(26px,5vw,38px);letter-spacing:-1px;margin:3px 0}p{color:#a8bad2;line-height:1.5}.intro{margin-bottom:24px}.layout{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{background:#111f35;border:1px solid #29405c;border-radius:20px;padding:22px;box-shadow:0 12px 28px #050c1845}h2{font-size:18px;margin:0 0 5px}.hint{font-size:13px;margin:0 0 20px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field{min-width:0}.field.wide{grid-column:1/-1}label{display:block;font-size:14px;color:#c2d1e5;margin-bottom:7px}input{width:100%;background:#0a1728;color:white;border:1px solid #3b536f;border-radius:12px;padding:13px;font-size:18px;font-variant-numeric:tabular-nums;outline:none}input:focus{border-color:#1ce1ac;box-shadow:0 0 0 3px #1ce1ac25}.unit{font-size:12px;color:#8fa5c1;margin-top:5px}.result-grid{display:grid;gap:12px;margin-top:18px}.result{padding:15px;border:1px solid #314763;background:#0b182b;border-radius:14px}.result.good{border-color:#1ce1ac80;background:#0c342f}.result.best{outline:2px solid #1ce1ac}.result-top{display:flex;justify-content:space-between;align-items:center;gap:10px}.result-name{font-weight:700}.pill{font-size:12px;border-radius:30px;padding:4px 9px;background:#20344f;color:#d4e1ef}.pill.positive{background:#174a40;color:#6df4cc}.metric{font-size:27px;font-weight:800;letter-spacing:-.6px;margin:8px 0 2px;font-variant-numeric:tabular-nums}.sub{font-size:13px;color:#abc1d9}.foot{font-size:13px;color:#90a6be;margin-top:15px}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}button{border:1px solid #46617f;border-radius:11px;background:#203650;color:#eaf4ff;padding:11px 15px;font-size:14px;font-weight:700;cursor:pointer}button:hover{background:#2b4666}.alert{border:1px solid #2d5360;border-radius:13px;padding:14px 16px;color:#cbe5e9;background:#0d2a35;margin-top:18px;font-size:14px}.alert.positive{border-color:#20bd91;background:#0b3e35;color:#aaf5dd}.error{color:#ffc2ae}.disclaimer{margin-top:22px;font-size:13px;color:#93a9c3}footer{font-size:12px;color:#7890ac;margin-top:26px}@media(max-width:740px){.layout{grid-template-columns:1fr}main{padding:20px 15px 55px}.card{padding:18px}.metric{font-size:24px}}@media(max-width:360px){.fields{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<main>
+  <header><div class="logo">$↔</div><div><div class="eyebrow">Calculadora de spreads</div><h1>Rulo dólar</h1></div></header>
+  <p class="intro">Compará comprar dólar oficial en <b>Reba</b> o <b>Brubank Ultra</b> y venderlo directamente en <b>Fiwind</b>, o convertirlo primero a <b>USDT</b>. Todas las cotizaciones se cargan manualmente.</p>
+  <div class="layout">
+    <section class="card" aria-labelledby="inputs-title">
+      <h2 id="inputs-title">Cotizaciones</h2><p class="hint">Usá el precio efectivo de cada operación, sin confundir compra con venta de la plataforma.</p>
+      <div class="fields">
+        <div class="field"><label for="reba">Reba · vos comprás USD</label><input id="reba" inputmode="decimal" placeholder="Ej. 1450" aria-label="Pesos por dólar en Reba"><div class="unit">ARS por USD</div></div>
+        <div class="field"><label for="brubank">Brubank Ultra · comprás USD</label><input id="brubank" inputmode="decimal" placeholder="Ej. 1448"><div class="unit">ARS por USD</div></div>
+        <div class="field wide"><label for="fiwind">Fiwind oficial · te compra USD</label><input id="fiwind" inputmode="decimal" placeholder="Ej. 1457"><div class="unit">ARS recibidos por cada USD vendido</div></div>
+        <div class="field"><label for="usdtUsd">USDT · vos comprás con USD</label><input id="usdtUsd" inputmode="decimal" placeholder="Ej. 1,002"><div class="unit">USD pagados por 1 USDT</div></div>
+        <div class="field"><label for="usdtArs">USDT · vendés por ARS</label><input id="usdtArs" inputmode="decimal" placeholder="Ej. 1465"><div class="unit">ARS recibidos por 1 USDT</div></div>
+      </div>
+      <h2 style="margin-top:26px">Tu operación</h2><p class="hint">Ajustá monto, comisiones y umbral de aviso.</p>
+      <div class="fields">
+        <div class="field"><label for="capital">Capital por rulo</label><input id="capital" inputmode="decimal" value="1000"><div class="unit">USD</div></div>
+        <div class="field"><label for="fees">Costos totales</label><input id="fees" inputmode="decimal" value="0"><div class="unit">% de lo invertido en ARS</div></div>
+        <div class="field wide"><label for="threshold">Spread mínimo conveniente</label><input id="threshold" inputmode="decimal" value="5"><div class="unit">ARS netos por USD</div></div>
+      </div>
+      <div class="actions"><button id="example" type="button">Cargar ejemplo</button><button id="clear" type="button">Limpiar cotizaciones</button></div>
+    </section>
+    <section class="card" aria-labelledby="results-title">
+      <h2 id="results-title">Comparación de rutas</h2><p class="hint">Ganancia estimada neta, ordenada por resultado. Se calcula con las cotizaciones ingresadas.</p>
+      <div id="results" class="result-grid" aria-live="polite"><p>Ingresá las cotizaciones para comparar tus rutas.</p></div>
+      <div id="alert" class="alert" role="status">Completá los valores para detectar oportunidades.</div>
+      <p class="foot">Spread neto = ganancia neta ÷ USD iniciales. Rentabilidad = ganancia neta ÷ ARS invertidos × 100.</p>
+    </section>
+  </div>
+  <p class="disclaimer">⚠️ Simulador informativo: no consulta precios en vivo ni realiza operaciones. Verificá disponibilidad, cotización final, límites, transferencias, comisiones, impuestos y condiciones de cada plataforma antes de operar. Los valores pueden cambiar entre pasos. No implica ganancia garantizada.</p>
+  <footer>Datos guardados únicamente en este navegador · Versión 1.0</footer>
+</main>
+<script>
+(()=>{
+  const ids=['reba','brubank','fiwind','usdtUsd','usdtArs','capital','fees','threshold'];
+  const els=Object.fromEntries(ids.map(id=>[id,document.getElementById(id)]));
+  const saved=(()=>{try{return JSON.parse(localStorage.getItem('rulo-v1')||'{}')}catch{return {}}})();
+  ids.forEach(id=>{if(saved[id]!==undefined)els[id].value=saved[id];els[id].addEventListener('input',render)});
+  const number=id=>{const s=els[id].value.trim().replace(/\s/g,'');if(!s)return NaN;const normalized=s.includes(',')?s.replace(/\./g,'').replace(',','.'):s;return Number(normalized)};
+  const pesos=n=>new Intl.NumberFormat('es-AR',{style:'currency',currency:'ARS',maximumFractionDigits:2}).format(n);
+  const decimal=n=>new Intl.NumberFormat('es-AR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n);
+  const safe=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  function render(){
+    try{localStorage.setItem('rulo-v1',JSON.stringify(Object.fromEntries(ids.map(id=>[id,els[id].value]))))}catch{}
+    const v=Object.fromEntries(ids.map(id=>[id,number(id)]));
+    const results=document.getElementById('results'),alert=document.getElementById('alert');
+    if(!Number.isFinite(v.capital)||v.capital<=0||!Number.isFinite(v.fees)||v.fees<0||!Number.isFinite(v.threshold)||v.threshold<0){results.innerHTML='<p class="error">Ingresá capital positivo, costos y umbral válidos (no negativos).</p>';alert.textContent='Revisá los datos de la operación.';alert.className='alert';return}
+    const sources=[['Reba',v.reba],['Brubank Ultra',v.brubank]].filter(([,price])=>Number.isFinite(price)&&price>0);
+    const validFi=Number.isFinite(v.fiwind)&&v.fiwind>0;
+    const validUsdt=Number.isFinite(v.usdtUsd)&&v.usdtUsd>0&&Number.isFinite(v.usdtArs)&&v.usdtArs>0;
+    let routes=[];
+    for(const [name,cost] of sources){
+      const invested=v.capital*cost,fee=invested*v.fees/100;
+      if(validFi){const revenue=v.capital*v.fiwind;routes.push({name:name+' → Fiwind',net:revenue-invested-fee,capital:invested})}
+      if(validUsdt){const usdt=v.capital/v.usdtUsd;const revenue=usdt*v.usdtArs;routes.push({name:name+' → USDT → ARS',net:revenue-invested-fee,capital:invested})}
+    }
+    routes=routes.map(r=>({...r,spread:r.net/v.capital,returnPct:r.net/r.capital*100})).sort((a,b)=>b.net-a.net);
+    if(!routes.length){results.innerHTML='<p>Ingresá al menos una cotización de compra (Reba o Brubank) y una ruta de venta completa (Fiwind o USDT).</p>';alert.textContent='Todavía no hay rutas completas para calcular.';alert.className='alert';return}
+    results.innerHTML=routes.map((r,i)=>{const good=r.spread>=v.threshold;return `<article class="result ${good?'good':''} ${i===0?'best':''}"><div class="result-top"><span class="result-name">${safe(r.name)}</span><span class="pill ${good?'positive':''}">${good?'Supera umbral':r.net>0?'Ganancia':'Sin ganancia'}</span></div><div class="metric" style="color:${r.net<0?'#ff9f96':r.net>0?'#5de9bc':'#edf4ff'}">${r.net>0?'+':''}${pesos(r.net)}</div><div class="sub">Spread neto: ${decimal(r.spread)} ARS/USD · Rendimiento: ${decimal(r.returnPct)}%</div></article>`}).join('');
+    const best=routes[0],good=best.spread>=v.threshold;
+    alert.className='alert'+(good?' positive':'');
+    alert.textContent=good?`✓ Mejor ruta: ${best.name}. El spread neto estimado supera tu umbral de ${decimal(v.threshold)} ARS/USD.`:`La mejor ruta es ${best.name}, con ${decimal(best.spread)} ARS/USD netos. No alcanza el umbral de ${decimal(v.threshold)} ARS/USD.`;
+  }
+  document.getElementById('example').addEventListener('click',()=>{Object.entries({reba:'1450',brubank:'1448',fiwind:'1457',usdtUsd:'1,002',usdtArs:'1465',capital:'1000',fees:'0',threshold:'5'}).forEach(([k,v])=>els[k].value=v);render()});
+  document.getElementById('clear').addEventListener('click',()=>{['reba','brubank','fiwind','usdtUsd','usdtArs'].forEach(k=>els[k].value='');render()});
+  render();
+})();
+</script>
+</body>
+</html>
